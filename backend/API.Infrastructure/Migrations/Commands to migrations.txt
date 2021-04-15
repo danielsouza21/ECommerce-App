@@ -1,0 +1,5 @@
+﻿Commands to migrations
+https://docs.microsoft.com/pt-br/ef/core/managing-schemas/migrations/?tabs=vs#getting-started
+
+Add-Migration InitialCreate
+Update-Database
