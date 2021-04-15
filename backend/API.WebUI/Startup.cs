@@ -17,7 +17,7 @@ namespace API
 
         public IConfiguration _configuration { get; }
 
-        public void ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services) 
         {
             services.AddControllers();
 
