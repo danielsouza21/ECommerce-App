@@ -9,8 +9,7 @@ Repository pattern used to decouple business code from data access, separate int
 
 ### Technologies
 
-.NET Core
-Entity Framework Core
-Angular
+Main: .NET Core, Entity Framework Core, Angular
+Secondary:
 
 
