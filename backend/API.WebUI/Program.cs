@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using API.Infrastructure.Data.EfCore;
+using API.Infrastructure.Data.SeedData;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,6 +25,7 @@ namespace API.WebUI
                 {
                     var context = services.GetRequiredService<StoreContext>();
                     await context.Database.MigrateAsync();
+                    await StoreContextSeed.SeedAsync(context, loggerFactory);
                 }
                 catch (Exception ex)
                 {
