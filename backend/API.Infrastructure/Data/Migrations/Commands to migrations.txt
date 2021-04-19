@@ -3,3 +3,7 @@ https://docs.microsoft.com/pt-br/ef/core/managing-schemas/migrations/?tabs=vs#ge
 
 Add-Migration InitialCreate
 Update-Database
+Remove-Migration -Project API.Infrastructure 
+
+cli:
+dotnet ef database drop -p API.Infrastructure -s API.WebUI
