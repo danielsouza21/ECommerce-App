@@ -1,4 +1,4 @@
-﻿using Domain.Entities;
+﻿using API.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Infrastructure.Data.EfCore
