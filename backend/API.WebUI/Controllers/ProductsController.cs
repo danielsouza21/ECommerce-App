@@ -28,5 +28,19 @@ namespace API.WebUI.Controllers
             var product = await _repoProduct.GetProductByIdAsync(id);
             return Ok(product);
         }
+
+        [HttpGet("brands")]
+        public async Task<IActionResult> GetProductBrandsAsync()
+        {
+            var productsBrands = await _repoProduct.GetProductBrandsAsync();
+            return Ok(productsBrands);
+        }
+
+        [HttpGet("types")]
+        public async Task<IActionResult> GetProductTypesAsync()
+        {
+            var productsTypes = await _repoProduct.GetProductTypesAsync();
+            return Ok(productsTypes);
+        }
     }
 }

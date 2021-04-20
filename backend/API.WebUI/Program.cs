@@ -24,7 +24,8 @@ namespace API.WebUI
                 try
                 {
                     var context = services.GetRequiredService<StoreContext>();
-                    await context.Database.MigrateAsync();
+                    await context.Database.MigrateAsync();  //Apply Update-Database with last migration
+
                     await StoreContextSeed.SeedAsync(context, loggerFactory);
                 }
                 catch (Exception ex)
