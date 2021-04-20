@@ -1,4 +1,6 @@
+using API.Domain.Interfaces;
 using API.Infrastructure.Data.Config;
+using API.Infrastructure.Data.EfCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -6,7 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 
-namespace API
+namespace API.WebUI
 {
     public class Startup
     {
@@ -21,7 +23,9 @@ namespace API
         {
             services.AddControllers();
 
-            StartupEntityFrameworkConfig.AddEntityFrameworkConfiguration(services, _configuration);
+            services.AddScoped<IProductRepository, ProductRepository>();
+
+            EntityFrameworkConfig.AddConfigurationContext(services, _configuration);
 
             services.AddSwaggerGen(c =>
             {
