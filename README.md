@@ -5,7 +5,7 @@ Development of an e-commerce store using Angular, .Net Core and other technologi
 
 DDD (Domain-Driven Development) methodology applied with Clean Architecture, always using the concepts of Clean Code and SOLID to the maximum. 
 
-Repository pattern (Data Access Object Classes) used to decouple business code from data access, separate interests, minimize duplicate query logic and improve testability.
+Repository pattern (Data Access Object Classes) used to decouple business code from data access, separate interests, minimize duplicate query logic and improve testability. Applied the concept of Generic Repository and Specifications Pattern for centralization of responsibilities, among other advantages.
 
 ### Technologies
 
