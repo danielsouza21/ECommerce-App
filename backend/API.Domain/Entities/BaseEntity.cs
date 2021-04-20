@@ -1,4 +1,6 @@
-﻿namespace API.Domain.Entities
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace API.Domain.Entities
 {
     public class BaseEntity
     {
