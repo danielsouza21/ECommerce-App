@@ -11,6 +11,6 @@ Repository pattern (Data Access Object Classes) used to decouple business code f
 
 Main: .NET Core, Entity Framework Core, Angular
 
-Secondary:
+Secondary: AutoMapper
 
 

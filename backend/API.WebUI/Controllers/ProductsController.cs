@@ -1,6 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using API.Core.Entities;
 using API.Core.Interfaces;
 using API.WebUI.DTOs;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.WebUI.Controllers
@@ -10,34 +14,28 @@ namespace API.WebUI.Controllers
     public class ProductsController : ControllerBase
     {
         private readonly IStoreServices _storeServices;
+        private readonly IMapper _mapper;
 
-        public ProductsController(IStoreServices storeServices)
+        public ProductsController(IStoreServices storeServices, IMapper mapper)
         {
             _storeServices = storeServices;
+            _mapper = mapper;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetProductsAsync()
         {
             var products = await _storeServices.GetProductsAsync();
-            return Ok(products);
+            var productsDto = _mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductToReturnDto>>(products);  //list product to list DTO product
+
+            return Ok(productsDto);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetProductAsync(int id)
         {
             var product = await _storeServices.GetProductById(id);
-
-            var productDto = new ProductToReturnDto
-            {
-                Id = product.Id,
-                Name = product.Name,
-                Description = product.Description,
-                PictureUrl = product.PictureUrl,
-                Price = product.Price,
-                ProductBrand = product.ProductBrand.Name,
-                ProductType = product.ProductType.Name
-            };
+            var productDto = _mapper.Map<Product, ProductToReturnDto>(product);
 
             return Ok(productDto);
         }
