@@ -13,7 +13,7 @@ Using static files in the wwwroot folder, setting the startup to UseStaticFiles(
 
 Main: .NET Core, Entity Framework Core, Angular
 
-Secondary: AutoMapper
+Secondary technologies or libraries used: AutoMapper
 
 ### Next implementations to be made:
 
