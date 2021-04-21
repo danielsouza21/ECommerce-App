@@ -24,7 +24,6 @@ namespace API.WebUI
             services.AddControllers();
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            services.AddScoped<IProductRepository, ProductRepository>();
 
             EntityFrameworkConfig.AddConfigurationContext(services, _configuration);
 

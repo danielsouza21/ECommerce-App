@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using API.Core.Entities;
 using API.Core.Interfaces;
+using API.Core.Specifications;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.WebUI.Controllers
@@ -27,7 +28,9 @@ namespace API.WebUI.Controllers
         [HttpGet]
         public async Task<IActionResult> GetProductsAsync()
         {
-            var products = await _repoProducts.GetAllAsync();
+            var spec = new ProductsWithTypesBrandsSpecification();
+
+            var products = await _repoProducts.GetWithSpecAsync(spec);
             return Ok(products);
         }
 

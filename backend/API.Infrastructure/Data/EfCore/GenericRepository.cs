@@ -32,7 +32,7 @@ namespace API.Infrastructure.Data.EfCore
             return await ApplySpecification(spec).FirstOrDefaultAsync();
         }
 
-        public async Task<IReadOnlyList<T>> GetAsync(ISpecification<T> spec)
+        public async Task<IReadOnlyList<T>> GetWithSpecAsync(ISpecification<T> spec)
         {
             return await ApplySpecification(spec).ToListAsync();
         }
