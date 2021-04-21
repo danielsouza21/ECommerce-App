@@ -13,4 +13,7 @@ Main: .NET Core, Entity Framework Core, Angular
 
 Secondary: AutoMapper
 
+### Next implementations to be made:
+
+- One way to insert and remove products, including their images (upload)
 

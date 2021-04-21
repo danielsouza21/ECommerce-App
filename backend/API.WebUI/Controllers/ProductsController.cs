@@ -26,7 +26,7 @@ namespace API.WebUI.Controllers
         public async Task<IActionResult> GetProductsAsync()
         {
             var products = await _storeServices.GetProductsAsync();
-            var productsDto = _mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductToReturnDto>>(products);  //list product to list DTO product
+            var productsDto = _mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductToReturnDto>>(products);  //list<product> to list<DTO product>
 
             return Ok(productsDto);
         }

@@ -9,8 +9,9 @@ namespace API.WebUI.Helpers
         public MappingProfiles()
         {
             CreateMap<Product, ProductToReturnDto>()
-                .ForMember(d => d.ProductBrand, o => o.MapFrom(s => s.ProductBrand.Name))  //ProductBrand class to string
-                .ForMember(d => d.ProductType, o => o.MapFrom(s => s.ProductType.Name));  //ProductType class to string
+                .ForMember(d => d.ProductBrand, o => o.MapFrom(s => s.ProductBrand.Name))  //Explaining class to string, 
+                .ForMember(d => d.ProductType, o => o.MapFrom(s => s.ProductType.Name))   //because it is not clear / intuitive to autoMapper
+                .ForMember(d => d.PictureUrl, o => o.MapFrom<ProductUrlResolver>());
         }
     }
 }
