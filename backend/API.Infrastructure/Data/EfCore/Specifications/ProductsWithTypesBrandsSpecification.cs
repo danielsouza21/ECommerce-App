@@ -1,8 +1,6 @@
-﻿using System;
-using System.Linq.Expressions;
-using API.Core.Entities;
+﻿using API.Core.Entities;
 
-namespace API.Core.Specifications
+namespace API.Infrastructure.Data.EfCore.Specifications
 {
     public class ProductsWithTypesBrandsSpecification : BaseSpecification<Product>
     {

@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using API.Core.Specifications;
 
-namespace API.Core.Specifications
+namespace API.Infrastructure.Data.EfCore.Specifications
 {
     public class BaseSpecification<T> : ISpecification<T>
     {

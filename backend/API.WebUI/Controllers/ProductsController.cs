@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using API.Core.Entities;
 using API.Core.Interfaces;
-using API.Core.Specifications;
+using API.Infrastructure.Data.EfCore.Specifications;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.WebUI.Controllers

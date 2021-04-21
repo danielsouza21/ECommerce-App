@@ -3,7 +3,7 @@ using API.Core.Entities;
 using API.Core.Specifications;
 using Microsoft.EntityFrameworkCore;
 
-namespace API.Infrastructure.Data.EfCore
+namespace API.Infrastructure.Data.EfCore.Specifications
 {
     class SpecificationEvaluator<TEntity> where TEntity : BaseEntity
     {
