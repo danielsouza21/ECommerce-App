@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
-using API.Domain.Entities;
-using API.Domain.Interfaces;
+using API.Core.Entities;
+using API.Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.WebUI.Controllers

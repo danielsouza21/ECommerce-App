@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using API.Domain.Entities;
-using API.Domain.Interfaces;
-using API.Domain.Specifications;
+using API.Core.Entities;
+using API.Core.Interfaces;
+using API.Core.Specifications;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Infrastructure.Data.EfCore

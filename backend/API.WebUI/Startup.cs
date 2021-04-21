@@ -1,4 +1,4 @@
-using API.Domain.Interfaces;
+using API.Core.Interfaces;
 using API.Infrastructure.Data.Config;
 using API.Infrastructure.Data.EfCore;
 using Microsoft.AspNetCore.Builder;

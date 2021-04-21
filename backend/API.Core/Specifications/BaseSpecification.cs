@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace API.Domain.Specifications
+namespace API.Core.Specifications
 {
     public class BaseSpecification<T> : ISpecification<T>
     {

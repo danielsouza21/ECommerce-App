@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using API.Domain.Entities;
-using API.Domain.Specifications;
+using API.Core.Entities;
+using API.Core.Specifications;
 
-namespace API.Domain.Interfaces
+namespace API.Core.Interfaces
 {
     public interface IGenericRepository<T> where T : BaseEntity
     {

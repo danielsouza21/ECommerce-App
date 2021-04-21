@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using API.Domain.Entities;
-using API.Domain.Interfaces;
+using API.Core.Entities;
+using API.Core.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Infrastructure.Data.EfCore

@@ -1,6 +1,6 @@
 ﻿using System.Linq;
-using API.Domain.Entities;
-using API.Domain.Specifications;
+using API.Core.Entities;
+using API.Core.Specifications;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Infrastructure.Data.EfCore

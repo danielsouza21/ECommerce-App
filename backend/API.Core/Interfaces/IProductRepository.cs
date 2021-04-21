@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using API.Domain.Entities;
+using API.Core.Entities;
 
-namespace API.Domain.Interfaces
+namespace API.Core.Interfaces
 {
     public interface IProductRepository
     {

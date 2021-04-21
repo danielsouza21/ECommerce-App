@@ -1,5 +1,5 @@
 ﻿using System.Reflection;
-using API.Domain.Entities;
+using API.Core.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Infrastructure.Data.EfCore
