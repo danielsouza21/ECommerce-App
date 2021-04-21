@@ -1,6 +1,7 @@
 using API.Core.Interfaces;
 using API.Infrastructure.Data.Config;
 using API.Infrastructure.Data.EfCore;
+using API.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -24,6 +25,7 @@ namespace API.WebUI
             services.AddControllers();
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped<IStoreServices, StoreServices>();
 
             EntityFrameworkConfig.AddConfigurationContext(services, _configuration);
 
