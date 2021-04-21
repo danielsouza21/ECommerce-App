@@ -1,6 +1,8 @@
-using API.Domain.Interfaces;
+using API.Core.Interfaces;
 using API.Infrastructure.Data.Config;
 using API.Infrastructure.Data.EfCore;
+using API.Services;
+using API.WebUI.Helpers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -23,9 +25,11 @@ namespace API.WebUI
         {
             services.AddControllers();
 
-            services.AddScoped<IProductRepository, ProductRepository>();
-
             EntityFrameworkConfig.AddConfigurationContext(services, _configuration);
+
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped<IStoreServices, StoreServices>();
+            services.AddAutoMapper(typeof(MappingProfiles));
 
             services.AddSwaggerGen(c =>
             {
@@ -45,6 +49,7 @@ namespace API.WebUI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseStaticFiles();
 
             app.UseAuthorization();
 

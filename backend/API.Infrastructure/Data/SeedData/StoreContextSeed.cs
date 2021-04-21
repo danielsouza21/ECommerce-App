@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
-using API.Domain.Entities;
+using API.Core.Entities;
 using API.Infrastructure.Data.EfCore;
 using Microsoft.Extensions.Logging;
 
