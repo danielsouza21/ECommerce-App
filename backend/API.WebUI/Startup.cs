@@ -3,6 +3,7 @@ using API.Infrastructure.Data.Config;
 using API.Infrastructure.Data.EfCore;
 using API.Services;
 using API.WebUI.Helpers;
+using API.WebUI.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -39,18 +40,19 @@ namespace API.WebUI
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseMiddleware<ExceptionMiddleware>();
+
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
             }
 
-            app.UseHttpsRedirection();
+            app.UseStatusCodePagesWithReExecute("/errors/{0}");
 
+            app.UseHttpsRedirection();
             app.UseRouting();
             app.UseStaticFiles();
-
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

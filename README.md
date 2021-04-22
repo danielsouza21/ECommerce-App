@@ -7,7 +7,9 @@ DDD (Domain-Driven Development) methodology applied with Clean Architecture, alw
 
 Repository pattern (Data Access Object Classes) used to decouple business code from data access, separate interests, minimize duplicate query logic and improve testability. Applied the concept of Generic Repository and Specifications Pattern with IQueryable<T> types for centralization of responsibilities, standardize the code and among other advantages.
 
-Using static files in the wwwroot folder, setting the startup to UseStaticFiles(). [Initial data found publicly was used to fill the files and the database.]
+Using static files in the "wwwroot" folder, setting the startup to UseStaticFiles(). [Initial data found publicly was used to fill the files and the database.]
+
+Error handling through middleware was used to customize errors and exceptions.
 
 ### Technologies
 
