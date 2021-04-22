@@ -31,11 +31,12 @@ namespace API.WebUI.Middleware
             }
             catch(Exception ex)
             {
-                string json = HandleExceptionAsync(context, ex);
-
+                var json = HandleExceptionAsync(context, ex);
                 await context.Response.WriteAsync(json);
             }
         }
+
+        #region Private Methods
 
         private string HandleExceptionAsync(HttpContext context, Exception ex)
         {
@@ -56,7 +57,10 @@ namespace API.WebUI.Middleware
 
             var optionsSerializer = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
             var json = JsonSerializer.Serialize(response, optionsSerializer);
+
             return json;
         }
+
+        #endregion
     }
 }

@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace API.WebUI.Controllers
 {
     [ApiExplorerSettings(IgnoreApi = true)]
-    [Route("errors/{code}")]
+    [Route("error/{code}")]
     public class ErrorController : ControllerBase
     {
         [HttpGet]
