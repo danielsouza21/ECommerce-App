@@ -8,5 +8,7 @@ namespace API.Core.Specifications
     {
         Expression<Func<T, bool>> Criteria { get; }
         List<Expression<Func<T, object>>> Includes { get; }
+        public Expression<Func<T, object>> OrderBy { get; set; }
+        public Expression<Func<T, object>> OrderByDescending { get; set; }
     }
 }

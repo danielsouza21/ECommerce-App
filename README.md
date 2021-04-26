@@ -11,6 +11,8 @@ Using static files in the "wwwroot" folder, setting the startup to UseStaticFile
 
 Error handling through middleware was used to customize errors and exceptions.
 
+Added API strategy for paging, filtering, sorting and searching requests. This was applied to improve performance and optimize the content sought.
+
 ### Technologies
 
 Main: .NET Core, Entity Framework Core, Angular
