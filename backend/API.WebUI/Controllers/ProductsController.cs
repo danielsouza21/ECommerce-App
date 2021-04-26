@@ -2,6 +2,8 @@
 using System.Threading.Tasks;
 using API.Core.Entities;
 using API.Core.Interfaces;
+using API.Core.Specifications;
+using API.Services;
 using API.WebUI.DTOs;
 using API.WebUI.ErrorHandlers;
 using AutoMapper;
@@ -26,9 +28,9 @@ namespace API.WebUI.Controllers
         [HttpGet]
         [ProducesResponseType(typeof(IReadOnlyList<ProductToReturnDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetProductsAsync()
+        public async Task<IActionResult> GetProductsAsync([FromQuery]ProductSpecParams productParams)
         {
-            var products = await _storeServices.GetProductsAsync();
+            var products = await _storeServices.GetProductsAsync(productParams);
             var productsDto = _mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductToReturnDto>>(products);  //list<product> to list<DTO product>
 
             return Ok(productsDto);

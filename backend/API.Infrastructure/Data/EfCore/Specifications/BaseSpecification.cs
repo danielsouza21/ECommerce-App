@@ -17,11 +17,16 @@ namespace API.Infrastructure.Data.EfCore.Specifications
         }
 
         public Expression<Func<T, bool>> Criteria { get; }
-
         public List<Expression<Func<T, object>>> Includes { get; } = new List<Expression<Func<T, object>>>();  //Default empty list
-        public Expression<Func<T, object>> OrderBy { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public Expression<Func<T, object>> OrderByDescending { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
+        public Expression<Func<T, object>> OrderBy { get; private set; }
+        public Expression<Func<T, object>> OrderByDescending { get; private set; }
+
+        public int Take { get; private set; }
+        public int Skip { get; private set; }
+        public bool IsPagingEnabled { get; private set; } = false;
+
+        #region Protected Methods
         protected void AddInclude(Expression<Func<T, object>> includedExpression)
         {
             Includes.Add(includedExpression);
@@ -36,5 +41,13 @@ namespace API.Infrastructure.Data.EfCore.Specifications
         {
             OrderByDescending = orderByDescExpression;
         }
+
+        protected void ApplyPaging(int skip, int take)
+        {
+            Skip = skip;
+            Take = take;
+            IsPagingEnabled = true;
+        }
+        #endregion
     }
 }
