@@ -9,7 +9,7 @@ namespace API.Infrastructure.Data.EfCore.Specifications
     public class ProductsWithTypesBrandsSpecification : BaseSpecification<Product>
     {
         public ProductsWithTypesBrandsSpecification(ProductSpecParams productParams) 
-            : base(DefineBrandAndTypeIdCriteria(productParams))
+            : base(DefineBrandTypeIdAndSearchCriteria(productParams))
         {
             //AddInclude: add new entities in base Includes prop
             //Method to do like this data access operation:
@@ -52,16 +52,20 @@ namespace API.Infrastructure.Data.EfCore.Specifications
         }
 
         #region Private methods
-        private static Expression<Func<Product, bool>> DefineBrandAndTypeIdCriteria(ProductSpecParams productParams)
+        private static Expression<Func<Product, bool>> DefineBrandTypeIdAndSearchCriteria(ProductSpecParams productParams)
         {
-            // This method defines the Criteria in such a way as to define the type or brand Id, if they have a value.
+            // This method defines the Criteria in such a way as to define the Query with type or brand Id, if they have a value.
+            // Or define the search value in the query, if it have a value.
 
             var brandId = productParams.BrandId;
             var typeId = productParams.TypeId;
+            var search = productParams.Search;
 
-            return x => 
-            ( 
-                ((!brandId.HasValue || x.ProductBrandId == brandId) && (!typeId.HasValue || x.ProductTypeId == typeId))
+            return x =>
+            (
+                ((!brandId.HasValue || x.ProductBrandId == brandId) &&
+                (!typeId.HasValue || x.ProductTypeId == typeId)) &&
+                (string.IsNullOrEmpty(search) || x.Name.ToLower().Contains(search))
             );
         }
 
