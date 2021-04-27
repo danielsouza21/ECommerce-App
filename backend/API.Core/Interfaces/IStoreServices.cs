@@ -11,5 +11,6 @@ namespace API.Core.Interfaces
         Task<Product> GetProductById(int id);
         Task<IReadOnlyList<ProductBrand>> GetAllProductsBrands();
         Task<IReadOnlyList<ProductType>> GetAllProductsTypes();
+        Task<int> GetCountAsync(ProductSpecParams productParams);
     }
 }

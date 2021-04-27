@@ -1,13 +1,12 @@
 ﻿using System.Linq;
 using API.Core.Interfaces;
 using API.Infrastructure.Data.EfCore;
-using API.Services;
-using API.WebUI.ErrorHandlers;
-using API.WebUI.Helpers;
+using API.Services.ErrorHandlers;
+using API.Services.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace API.WebUI.Extensions
+namespace API.Services.Extensions
 {
     public static class ApplicationServicesExtensions
     {

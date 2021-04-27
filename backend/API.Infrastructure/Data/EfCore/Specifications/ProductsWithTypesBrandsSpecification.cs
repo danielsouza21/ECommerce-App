@@ -12,7 +12,7 @@ namespace API.Infrastructure.Data.EfCore.Specifications
             : base(DefineBrandAndTypeIdCriteria(productParams))
         {
             //AddInclude: add new entities in base Includes prop
-            //Method to do like :
+            //Method to do like this data access operation:
             //_context.Product.Include(x => x.ProductType).Include(x => x.ProductBrand).FirstOrDefault();
 
             var sort = productParams.Sort;

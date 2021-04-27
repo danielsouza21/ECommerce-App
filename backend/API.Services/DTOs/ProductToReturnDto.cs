@@ -1,6 +1,4 @@
-﻿using API.Core.Entities;
-
-namespace API.WebUI.DTOs
+﻿namespace API.Services.DTOs
 {
     public class ProductToReturnDto
     {

@@ -1,4 +1,4 @@
-﻿using API.WebUI.ErrorHandlers;
+﻿using API.Services.ErrorHandlers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.WebUI.Controllers

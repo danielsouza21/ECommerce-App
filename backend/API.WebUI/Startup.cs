@@ -1,5 +1,5 @@
 using API.Infrastructure.Data.Config;
-using API.WebUI.Extensions;
+using API.Services.Extensions;
 using API.WebUI.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
