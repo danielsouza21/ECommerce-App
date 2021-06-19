@@ -1,0 +1,11 @@
+﻿Commands to migrations
+https://docs.microsoft.com/pt-br/ef/core/managing-schemas/migrations/?tabs=vs#getting-started
+
+Add-Migration InitialCreate
+Update-Database
+Remove-Migration -Project API.Infrastructure 
+
+cli:
+dotnet ef migrations add InitialCreate -p API.Infrastructure -s API.WebUI -o Data/Migrations
+dotnet ef database remove -p API.Infrastructure
+dotnet ef database drop -p API.Infrastructure -s API.WebUI
