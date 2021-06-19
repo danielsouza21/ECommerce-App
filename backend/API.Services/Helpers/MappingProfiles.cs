@@ -1,8 +1,8 @@
 ﻿using API.Core.Entities;
-using API.WebUI.DTOs;
+using API.Services.DTOs;
 using AutoMapper;
 
-namespace API.WebUI.Helpers
+namespace API.Services.Helpers
 {
     public class MappingProfiles : Profile
     {

@@ -2,8 +2,10 @@
 using System.Threading.Tasks;
 using API.Core.Entities;
 using API.Core.Interfaces;
-using API.WebUI.DTOs;
-using API.WebUI.ErrorHandlers;
+using API.Core.Specifications;
+using API.Services.DTOs;
+using API.Services.ErrorHandlers;
+using API.Services.Helpers;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -24,14 +26,17 @@ namespace API.WebUI.Controllers
         }
 
         [HttpGet]
-        [ProducesResponseType(typeof(IReadOnlyList<ProductToReturnDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Pagination<ProductToReturnDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetProductsAsync()
+        public async Task<IActionResult> GetProductsAsync([FromQuery]ProductSpecParams productParams)
         {
-            var products = await _storeServices.GetProductsAsync();
-            var productsDto = _mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductToReturnDto>>(products);  //list<product> to list<DTO product>
+            var products = await _storeServices.GetProductsAsync(productParams);
+            var totalItems = await _storeServices.GetCountAsync(productParams);
 
-            return Ok(productsDto);
+            var productsDto = _mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductToReturnDto>>(products);  //list<product> to list<DTO product>
+            var productPagination = new Pagination<ProductToReturnDto>(productParams.PageIndex, productParams.PageSize, totalItems, productsDto);
+
+            return Ok(productPagination);
         }
 
         [HttpGet("{id}")]

@@ -1,4 +1,4 @@
-﻿namespace API.WebUI.ErrorHandlers
+﻿namespace API.Services.ErrorHandlers
 {
     public class ApiResponse
     {

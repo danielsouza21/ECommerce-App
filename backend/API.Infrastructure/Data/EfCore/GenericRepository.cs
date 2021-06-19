@@ -18,6 +18,11 @@ namespace API.Infrastructure.Data.EfCore
             _context = context;
         }
 
+        public async Task<int> CountWithSpecAsync(ISpecification<T> spec)
+        {
+            return await ApplySpecification(spec).CountAsync();
+        }
+
         public async Task<IReadOnlyList<T>> GetAllAsync()
         {
             return await _context.Set<T>().ToListAsync();
@@ -28,7 +33,7 @@ namespace API.Infrastructure.Data.EfCore
             return await _context.Set<T>().FindAsync(id);
         }
 
-        public async Task<T> GetEntityWithSpec(ISpecification<T> spec)
+        public async Task<T> GetEntityWithSpecAsync(ISpecification<T> spec)
         {
             return await ApplySpecification(spec).FirstOrDefaultAsync();
         }
@@ -40,13 +45,11 @@ namespace API.Infrastructure.Data.EfCore
 
 
         #region private methods
-
         private IQueryable<T> ApplySpecification(ISpecification<T> spec)
         {
             var entityAsQuery = _context.Set<T>().AsQueryable();
             return SpecificationEvaluator<T>.GetQuery(entityAsQuery, spec);
         }
-
         #endregion
     }
 }

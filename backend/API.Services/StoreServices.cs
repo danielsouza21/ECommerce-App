@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using API.Core.Entities;
 using API.Core.Interfaces;
+using API.Core.Specifications;
 using API.Infrastructure.Data.EfCore.Specifications;
 
 namespace API.Services
@@ -32,13 +33,19 @@ namespace API.Services
         public async Task<Product> GetProductById(int id)
         {
             var spec = new ProductsWithTypesBrandsSpecification(id);
-            return await _repoProducts.GetEntityWithSpec(spec);
+            return await _repoProducts.GetEntityWithSpecAsync(spec);
         }
 
-        public async Task<IReadOnlyList<Product>> GetProductsAsync()
+        public async Task<IReadOnlyList<Product>> GetProductsAsync(ProductSpecParams productParams)
         {
-            var spec = new ProductsWithTypesBrandsSpecification();
+            var spec = new ProductsWithTypesBrandsSpecification(productParams);
             return await _repoProducts.GetWithSpecAsync(spec);
+        }
+
+        public async Task<int> GetCountAsync(ProductSpecParams productParams)
+        {
+            var countSpec = new ProductWithFiltersForCountSpecification(productParams); //ApplyFilters 
+            return await _repoProducts.CountWithSpecAsync(countSpec);
         }
     }
 }

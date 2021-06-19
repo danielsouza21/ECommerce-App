@@ -10,7 +10,9 @@ namespace API.Core.Interfaces
         Task<T> GetByIdAsync(int id);
         Task<IReadOnlyList<T>> GetAllAsync();
 
-        Task<T> GetEntityWithSpec(ISpecification<T> spec);
+        Task<T> GetEntityWithSpecAsync(ISpecification<T> spec);
         Task<IReadOnlyList<T>> GetWithSpecAsync(ISpecification<T> spec);
+
+        Task<int> CountWithSpecAsync(ISpecification<T> spec);
     }
 }

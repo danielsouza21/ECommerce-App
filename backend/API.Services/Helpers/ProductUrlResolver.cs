@@ -1,10 +1,10 @@
 ﻿using System;
 using API.Core.Entities;
-using API.WebUI.DTOs;
+using API.Services.DTOs;
 using AutoMapper;
 using Microsoft.Extensions.Configuration;
 
-namespace API.WebUI.Helpers
+namespace API.Services.Helpers
 {
     public class ProductUrlResolver : IValueResolver<Product, ProductToReturnDto, string>
     {
